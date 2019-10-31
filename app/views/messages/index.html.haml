@@ -1,19 +1,9 @@
 .flashbox グループを作成しました
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name たむとも
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__new-group 
-            = fa_icon 'pencil-square-o'
-          %li.side-header__box__menu__edit-user
-            = fa_icon 'cog'
-    .groups
-      %a
-        .group
-          %p.group__group-name  たむらの部屋
-          %P.group__latest-message こんにちは
+
+  = render "side_bar"
+
+  
   .chat-main
     .main-header
       .main-header__left-box
