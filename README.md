@@ -26,7 +26,7 @@
   has_many :groups_users
 
 
-##　groupsテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
