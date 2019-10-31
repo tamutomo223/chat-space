@@ -1,0 +1,39 @@
+.flashbox グループを作成しました
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name たむとも
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__new-group 
+            = fa_icon 'pencil-square-o'
+          %li.side-header__box__menu__edit-user
+            = fa_icon 'cog'
+    .groups
+      %a
+        .group
+          %p.group__group-name  たむらの部屋
+          %P.group__latest-message こんにちは
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group たむらの部屋
+        %ul.main-header__left-box__member-list
+          
+          %li.main-header__left-box__member-list__menber Member：たむとも
+      .main-header__edit-btn Edit
+    .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker たむとも
+          %p.message__upper-info__date 2019/10/29(Tue) 10:34:15
+        %p.message__text こんにちは
+    .form
+      %form.new-message 
+        .input-box 
+          %input.input-box__text{placeholder: "type a message"}
+          %label.input-box__image
+            %i.fa.fa-image
+            %input.input-box__image__file{type: "file"}
+        %input.submit-btn{type: "submit", value: "Send"}
+ 
