@@ -1,29 +1,22 @@
-.flashbox グループを作成しました
 .wrapper
-
-  = render "side_bar"
-
-  
+  = render "shared/side_bar"
   .chat-main
     .main-header
-      .main-header__left-box
-        %h2.main-header__left-box__current-group たむらの部屋
-        %ul.main-header__left-box__member-list
-          
-          %li.main-header__left-box__member-list__menber Member：たむとも
-      .main-header__edit-btn Edit
+      .main-header--left
+        %h2.main-header--left__title
+          = @group.name
+        %ul.main-header--left__members          
+          %li.main-header--left__members__member 
+      .main-header--right
+      
+        .main-header--right__button edit          
     .messages
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker たむとも
-          %p.message__upper-info__date 2019/10/29(Tue) 10:34:15
-        %p.message__text こんにちは
+      = render @messages
     .form
-      %form.new-message 
-        .input-box 
-          %input.input-box__text{placeholder: "type a message"}
-          %label.input-box__image
-            %i.fa.fa-image
-            %input.input-box__image__file{type: "file"}
-        %input.submit-btn{type: "submit", value: "Send"}
- 
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
