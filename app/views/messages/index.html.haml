@@ -5,18 +5,15 @@
       .main-header--left
         %h2.main-header--left__title
           = @group.name
-        %ul.main-header--left__members          
+        %ul.main-header--left__members
           %li.main-header--left__members__member 
-      .main-header--right
-      
-        .main-header--right__button edit          
+      .main-header--right      
+        .main-header--right__button edit
     .messages
       = render @messages
     .form
       = form_for [@group, @message] do |f|
-
         = f.text_field :content, class: 'form__message', placeholder: '      type a message'
-
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
