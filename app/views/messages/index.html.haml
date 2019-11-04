@@ -1,22 +1,22 @@
-.flashbox グループを作成しました
 .wrapper
-
-  = render "side_bar"
-
-  
+  = render "shared/side_bar"
   .chat-main
     .main-header
-      .main-header__left-box
-        %h2.main-header__left-box__current-group たむらの部屋
-        %ul.main-header__left-box__member-list
-          
-          %li.main-header__left-box__member-list__menber Member：たむとも
-      .main-header__edit-btn Edit
+      .main-header--left
+        %h2.main-header--left__title
+          = @group.name
+        %ul.main-header--left__members          
+          %li.main-header--left__members__member 
+      .main-header--right
+      
+        .main-header--right__button edit          
     .messages
       = render @messages
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+
+        = f.text_field :content, class: 'form__message', placeholder: '      type a message'
+
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'

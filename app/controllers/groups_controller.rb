@@ -9,8 +9,9 @@ class GroupsController < ApplicationController
   end
   
   def create
+    @group = Group.new(group_params)
     if @group.save
-      @group = Group.new(group_params)
+      
       redirect_to root_path, notice: 'グループを作成しました'
     else
       render :new
