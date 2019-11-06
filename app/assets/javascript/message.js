@@ -17,7 +17,7 @@ $(function() {
                       ${image}
                     </div>
                   </div> `
-    return html;
+  $('.messages').append(html);
   }
   $('.new_message').on('submit', function(e){
   e.preventDefault();
@@ -32,14 +32,13 @@ $(function() {
     contentType: false
   })
   .done(function(data){
-    var html = buildHTML(data);
-    $('.messages').append(html);
+    buildHTML(data);    
     $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
     $('form')[0].reset();
   })
-    .fail(function(){
-      alert('error');
-    });
-    return false;
+  .fail(function(){
+    alert('error');
+  });
+  return false;
   });
 });
