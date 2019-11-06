@@ -19,6 +19,11 @@ $(function() {
                   </div> `
   $('.messages').append(html);
   }
+
+  function scroll() {
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
+  };
+
   $('.new_message').on('submit', function(e){
   e.preventDefault();
   let formData = new FormData(this);
@@ -33,7 +38,7 @@ $(function() {
   })
   .done(function(data){
     buildHTML(data);    
-    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
+    scroll();
     $('form')[0].reset();
   })
   .fail(function(){
@@ -60,7 +65,7 @@ $(function() {
           insertHTML = buildHTML(message); 
           $('.messages').append(insertHTML);
         })
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        scroll();
       })
       .fail(function () {
         alert('自動更新に失敗しました');
@@ -70,4 +75,6 @@ $(function() {
   if (window.location.href.match(/\/groups\/\d+\/messages/)){
   setInterval(reloadMessages, 3000);
   };
+
+
 });
