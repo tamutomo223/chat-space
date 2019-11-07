@@ -50,27 +50,27 @@ $(function() {
 
   let reloadMessages = function () {
     
-      let last_message_id = $('.message:last').data("message-id");
-      let group_id = $(".group").data("group-id");
+    let last_message_id = $('.message:last').data("message-id");
+    let group_id = $(".group").data("group-id");
 
-      $.ajax({
-        url: "api/messages",
-        type: 'get', 
-        dataType: 'json', 
-        data: {last_id: last_message_id} 
+    $.ajax({
+      url: "api/messages",
+      type: 'get', 
+      dataType: 'json', 
+      data: {last_id: last_message_id} 
+    })
+    .done(function (messages) { 
+      let insertHTML = '';
+      messages.forEach(function (message) {
+        insertHTML = buildHTML(message); 
+        $('.messages').append(insertHTML);
       })
-      .done(function (messages) { 
-        var insertHTML = '';
-        messages.forEach(function (message) {
-          insertHTML = buildHTML(message); 
-          $('.messages').append(insertHTML);
-        })
-        scroll();
-      })
-      .fail(function () {
-        alert('自動更新に失敗しました');
-      });
-    };
+      scroll();
+    })
+    .fail(function () {
+      alert('自動更新に失敗しました');
+    });
+  };
   
   if (window.location.href.match(/\/groups\/\d+\/messages/)){
   setInterval(reloadMessages, 3000);
