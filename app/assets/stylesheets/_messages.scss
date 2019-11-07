@@ -24,11 +24,14 @@ $alert_orange: #F35500;
         }
         &__members {          
           color: $light_gray;
+          display: flex;
+          justify-content: left;
           font-size: 12px;
           margin-top: 15px;
-          .member {
-            display: inline-block;
-            padding-right: 5px;
+          &__member {
+            float: left;
+            margin-left: 10px;
+            display: block;
           }
         }
       }
