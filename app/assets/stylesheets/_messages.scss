@@ -30,7 +30,7 @@ $alert_orange: #F35500;
           margin-top: 15px;
           &__member {
             float: left;
-            margin-left: 10px;
+            margin-left: 5px;
             display: block;
           }
         }
@@ -99,6 +99,8 @@ $alert_orange: #F35500;
         &__image {
           font-size: 20px;
           line-height: 50px;
+          cursor: pointer;
+          cursor: hand;
         }
         .hidden {
           display: none;
@@ -113,6 +115,8 @@ $alert_orange: #F35500;
         height: 50px;
         margin-left: 15px;
         padding: 0 30px;
+        cursor: pointer;
+        cursor: hand;
       }
     }
   }
